@@ -2,8 +2,7 @@ import Link from "next/link";
 
 export default function StudentInfo() {
   return (
-    <div>
-      <h1>Student Info</h1>
+    <section>
       <p>Name: Anna Isabelle Yabut</p>
       <p>
         GitHub:{" "}
@@ -16,6 +15,6 @@ export default function StudentInfo() {
           isayabs/cprg306-assignments
         </Link>
       </p>
-    </div>
+    </section>
   );
 }

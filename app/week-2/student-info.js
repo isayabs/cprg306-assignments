@@ -10,8 +10,10 @@ export default function StudentInfo() {
         <Link 
           href="https://github.com/isayabs/cprg306-assignments" 
           target="_blank"
+          rel="noopener noreferrer"
+          className="underline"
         >
-          https://github.com/isayabs/cprg306-assignments
+          isayabs/cprg306-assignments
         </Link>
       </p>
     </div>

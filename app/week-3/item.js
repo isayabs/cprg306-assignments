@@ -1,9 +1,9 @@
-export default function Item ({name, quantity, category}) {
-    return (
-        <li>
-            <p>{name}</p>
-            <p>Quantity: {quantity}</p>
-            <p>Category: {category}</p>
-        </li>
-    )
+export default function Item({ name, quantity, category, className = "" }) {
+  return (
+    <li className={className}>
+      <p className="font-semibold">{name}</p>
+      <p>Quantity: {quantity}</p>
+      <p className="capitalize">Category: {category}</p>
+    </li>
+  );
 }

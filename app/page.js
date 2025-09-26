@@ -4,8 +4,9 @@ export default function Home() {
   return (
     <main>
       <h1>CPRG 306: Web Development 2 - Assignments</h1>
-      <p className="hover:underline">
-        <Link href="/week-2">Go to Week 2</Link>
+      <p >
+        <Link className="hover:underline" href="/week-2"> Go to Week 2 </Link>
+        <Link className="hover:underline" href="/week-3"> Go to Week 3 </Link>
       </p>
     </main>
   )

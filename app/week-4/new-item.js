@@ -16,6 +16,20 @@ export default function NewItem() {
     return (
         <div>
             <p>Quantity: {quantity}</p>
+
+            <button
+                onClick = {decrement}
+                disabled = {quantity === 1}
+                >
+                -
+            </button>
+
+            <button
+                onClick = {increment}
+                disabled = {quantity === 20}
+                >
+                +
+            </button>
         </div>
     );
 }

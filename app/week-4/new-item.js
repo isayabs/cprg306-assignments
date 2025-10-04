@@ -5,6 +5,14 @@ import { useState } from "react";
 export default function NewItem() {
     const [quantity, setQuantity] = useState(1);
 
+    const increment = () => {
+        setQuantity((qty) => Math.min(20, qty + 1));
+    };
+
+    const decrement = () => {
+        setQuantity((qty) => Math.max(1, qty - 1));
+    };
+
     return (
         <div>
             <p>Quantity: {quantity}</p>

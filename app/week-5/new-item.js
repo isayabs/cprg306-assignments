@@ -4,6 +4,8 @@ import { useState } from "react";
 
 export default function NewItem() {
     const [quantity, setQuantity] = useState(1);
+    const [name, setName] = useState("");
+    const [category, setCategory] = useState("produce");
 
     const increment = () => {
         setQuantity((qty) => Math.min(20, qty + 1));

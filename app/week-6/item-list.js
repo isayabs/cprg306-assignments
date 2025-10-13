@@ -6,6 +6,15 @@ import items from "./items.json"
 export default function ItemList () {
     const [sortBy, setSortBy] = useState("name");
 
+    const sorted = [...items].sort((a, b) => {
+        if (sortBy === "name") {
+            return a.name.localeCompare(b.name)
+        };
+
+        const byCategory = a.category.localeCompare(b.category);
+        return byCategory !== 0 ? byCategory : a.name.localeCompare(b.name);
+    });
+
     return (
     <ul className="space-y-3">
       {items.map((item) => (

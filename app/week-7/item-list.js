@@ -1,9 +1,8 @@
 "use client";
 import { useState } from "react";
 import Item from "./item";
-import items from "./items.json"
 
-export default function ItemList () {
+export default function ItemList ({ items }) {
     const [sortBy, setSortBy] = useState("name");
 
     const btnBase =
@@ -37,8 +36,8 @@ export default function ItemList () {
 
 
     return (
-        <section>
-            <div className = "mb-4 flex gap-2">
+        <section className = "mt-4 w-full text-left">
+            <div className = "mb-3 flex flex-wrap items-center gap-2">
                 <p className = "text-[#2D3047] dark:text-[#93B7BE]">
                     Filter:
                 </p>

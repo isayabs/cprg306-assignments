@@ -13,9 +13,9 @@ export default function Page() {
   };
 
   return (
-    <main className="min-h-screen flex items-center justify-center p-4">
-      <div className="max-w-xl w-full">
-        <h1 className="text-3xl font-bold text-[#2D3047] dark:text-[#93B7BE] text-left mb-3">
+    <main className="min-h-screen p-4">
+      <div className="mx-auto w-full max-w-xl">
+        <h1 className="mb-4 text-3xl font-bold text-left text-[#2D3047] dark:text-[#93B7BE]">
           Shopping List
         </h1>
         <NewItem onAddItem = {handleAddItem}/>

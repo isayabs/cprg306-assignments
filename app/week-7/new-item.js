@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export default function NewItem() {
+export default function NewItem({ onAddItem }) {
     const [quantity, setQuantity] = useState(1);
     const [name, setName] = useState("");
     const [category, setCategory] = useState("produce");
@@ -19,14 +19,13 @@ export default function NewItem() {
         event.preventDefault();
 
         const item = {
-            name,
+            id: Math.random().toString(36).slice(2, 9),
+            name: name.trim(),
             quantity,
             category,
         };
 
-        console.log(item);
-
-        alert(`Name: ${name} \nQuantity: ${quantity} \nCategory: ${category}`);
+        onAddItem(item);
 
         setName("");
         setQuantity(1);
@@ -46,6 +45,7 @@ export default function NewItem() {
                         Item Name:  
                     </label>
                     <input
+                        id = "name"
                         type = "text"
                         value = {name}
                         onChange = {(e) => setName(e.target.value)}
@@ -74,7 +74,7 @@ export default function NewItem() {
                         <option value = "dry">Dry Goods</option>
                         <option value = "beverages">Beverages</option>
                         <option value = "snacks">Snacks</option>
-                        <option value = "household">Househodld</option>
+                        <option value = "household">Household</option>
                         <option value = "other">Other</option>
                     </select>
                 </div>

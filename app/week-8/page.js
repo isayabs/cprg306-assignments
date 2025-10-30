@@ -37,7 +37,7 @@ export default function Page() {
     <main className="min-h-screen p-4">
       <div className="mx-auto w-full max-w-6xl">
         <h1 className="mb-6 text-3xl font-bold text-left text-[#2D3047] dark:text-[#93B7BE]">
-          Shopping List
+          Shopping List + Meal Ideas
         </h1>
 
         <div className="flex flex-col md:flex-row gap-6">

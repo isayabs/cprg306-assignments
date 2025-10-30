@@ -69,9 +69,13 @@ export default function ItemList ({ items, onItemSelect }) {
                     {sorted.map((item) => (
                         <Item
                             key = {item.id}
-                            className ="border rounded-lg p-4 shadow-sm max-w-xl mx-auto
-                                    even:bg-[#93B7BE] even:text-gray-900
-                                    odd:bg-[#2D3047] odd:text-white"
+                            className="border rounded-lg p-4 shadow-sm max-w-xl mx-auto
+                                        even:bg-[#93B7BE] even:text-gray-900
+                                        odd:bg-[#2D3047] odd:text-white
+                                        transition cursor-pointer
+                                        hover:shadow-md hover:scale-[1.01]
+                                        hover:border-[#93B7BE] dark:hover:border-[#93B7BE]/80
+                                        hover:brightness-110"
                             name = {item.name}
                             quantity = {item.quantity}
                             category = {item.category}
@@ -90,9 +94,13 @@ export default function ItemList ({ items, onItemSelect }) {
                                 {list.map((item) => (
                                     <Item
                                         key = {item.id}
-                                        className ="border rounded-lg p-4 shadow-sm max-w-xl mx-auto
-                                                    even:bg-[#93B7BE] even:text-gray-900
-                                                    odd:bg-[#2D3047] odd:text-white"
+                                        className="border rounded-lg p-4 shadow-sm max-w-xl mx-auto
+                                            even:bg-[#93B7BE] even:text-gray-900
+                                            odd:bg-[#2D3047] odd:text-white
+                                            transition cursor-pointer
+                                            hover:shadow-md hover:scale-[1.01]
+                                            hover:border-[#93B7BE] dark:hover:border-[#93B7BE]/80
+                                            hover:brightness-110"
                                         name = {item.name}
                                         quantity = {item.quantity}
                                         category = {item.category}

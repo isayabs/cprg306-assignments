@@ -36,7 +36,7 @@ export default function NewItem({ onAddItem }) {
         <section className = "w-full">
             <div className ="w-full mx-auto max-w-xl rounded-lg bg-[#93B7BE] p-6 shadow-md
                             ring-1 ring-black/10 dark:bg-[#2D3047] dark:ring-white/10 mb-4">
-                <h2 className="mb-4 text-center text-xl font-semibold text-[#2D3047] dark:text-[#93B7BE]">
+                <h2 className="mb-4 text-xl font-semibold text-[#2D3047] dark:text-[#93B7BE]">
                   Add New Item
                 </h2>
 

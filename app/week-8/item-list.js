@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Item from "./item";
 
-export default function ItemList ({ items }) {
+export default function ItemList ({ items, onItemSelect }) {
     const [sortBy, setSortBy] = useState("name");
 
     const btnBase =
@@ -75,6 +75,7 @@ export default function ItemList ({ items }) {
                             name = {item.name}
                             quantity = {item.quantity}
                             category = {item.category}
+                            onSelect={() => onItemSelect?.(item)}
                         />
                     ))}
                 </ul>
@@ -95,6 +96,7 @@ export default function ItemList ({ items }) {
                                         name = {item.name}
                                         quantity = {item.quantity}
                                         category = {item.category}
+                                        onSelect={() => onItemSelect?.(item)}
                                     />
                                 ))}
                             </ul>

@@ -50,7 +50,7 @@ export default function MealIdeas ({ ingredient }) {
     }
     
     return (
-        <main>
+        <section>
             <div className="
                 p-6 rounded-lg shadow-md
                 bg-[#93B7BE]
@@ -93,7 +93,7 @@ export default function MealIdeas ({ ingredient }) {
                             "
                         >
                             <div className="flex items-center gap-3">
-                                <img src={meal.strMealThumb} alt="" className="h-12 w-12 rounded-md object-cover" />
+                                <img src={meal.strMealThumb} alt={meal.strMeal} className="h-12 w-12 rounded-md object-cover" />
                                 <span className="font-semibold leading-snug">{meal.strMeal}</span>
                             </div>
                         </li>
@@ -101,6 +101,6 @@ export default function MealIdeas ({ ingredient }) {
                 </ul>
 
             </div>
-        </main>
+        </section>
     );
 }

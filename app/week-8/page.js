@@ -40,7 +40,7 @@ export default function Page() {
           Shopping List + Meal Ideas
         </h1>
 
-        <div className="flex flex-col md:flex-row gap-6">
+        <div className="flex flex-col md:flex-row gap-6 items-start">
           <div className="flex-1">
             <NewItem onAddItem={handleAddItem} />
             <ItemList items={items} onItemSelect={handleItemSelect} />

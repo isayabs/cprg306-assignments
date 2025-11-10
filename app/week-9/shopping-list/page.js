@@ -1,14 +1,25 @@
 "use client";
 
 import { useState } from "react";
+import { useUserAuth } from "../_utils/auth-context";
 import ItemList from "./item-list";
 import NewItem from "./new-item";
 import itemsData from "./items.json"; 
 import MealIdeas from "./meal-ideas";
 
 export default function Page() {
+  const { user } = useUserAuth();
   const [items, setItems] = useState(itemsData);
   const [selectedItemName, setSelectedItemName] = useState("");
+
+  if (!user) {
+    return (
+      <main>
+        <h1>Access Denied</h1>
+        <p>You must be logged in to view the shopping list.</p>
+      </main>
+    )
+  }
 
   const handleAddItem = (item) => {
     setItems((prev) => [...prev, item]);

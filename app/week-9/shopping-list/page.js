@@ -14,12 +14,28 @@ export default function Page() {
 
   if (!user) {
     return (
-      <main>
-        <h1>Access Denied</h1>
-        <p>You must be logged in to view the shopping list.</p>
+      <main className = "flex items-center justify-center min-h-screen">
+        <div className = "text-center bg-[#93B7BE] dark:bg-[#2D3047] p-8 rounded-2xl shadow-lg max-w-md">
+          <h1 className = "text-3xl font-bold text-[#2D3047] dark:text-[#93B7BE] mb-4">
+            Access Denied
+          </h1>
+
+          <p className = "text-[#2D3047] dark:text-[#E8E9EB] mb-6">
+            You must be logged in to view the shopping list.
+          </p>
+
+          <a
+            href="/week-9"
+            className ="inline-block rounded-lg bg-[#2D3047] text-[#DDE2E4] px-6 py-2 font-medium shadow transition hover:opacity-80
+                        dark:bg-[#93B7BE] dark:text-[#2D3047]"
+          >
+            Go to Login Page
+          </a>
+        </div>
       </main>
-    )
+    );
   }
+    
 
   const handleAddItem = (item) => {
     setItems((prev) => [...prev, item]);

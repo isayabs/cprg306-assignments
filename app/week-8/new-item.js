@@ -47,7 +47,10 @@ export default function NewItem({ onAddItem }) {
 
                     {/* Name */}
                     <div className = "flex flex-col">
-                        <label className = "mb-1 text-sm font-medium text-[#2D3047] dark:text-[#93B7BE]">
+                        <label
+                            htmlFor = "name" 
+                            className = "mb-1 text-sm font-medium text-[#2D3047] dark:text-[#93B7BE]"
+                        >
                             Item Name:  
                         </label>
                         <input
@@ -63,10 +66,14 @@ export default function NewItem({ onAddItem }) {
 
                     {/* Category */}
                     <div className = "flex flex-col">
-                        <label className="mb-1 text-sm font-medium text-[#2D3047] dark:text-[#93B7BE]">
+                        <label
+                            htmlFor = "category"
+                            className="mb-1 text-sm font-medium text-[#2D3047] dark:text-[#93B7BE]"
+                        >
                             Category: 
                         </label>
                         <select
+                            id = "category"
                             value = {category}
                             onChange = {(e) => setCategory(e.target.value)}
                             className = "rounded-lg border border-[#2D3047]/40 bg-white px-3 py-2 text-[#2D3047] outline-none transition focus:border-[#93B7BE] focus:ring-2 focus:ring-[#93B7BE] dark:border-[#93B7BE]/40 dark:bg-[#2D3047] dark:text-[#93B7BE]"

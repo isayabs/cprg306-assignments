@@ -61,7 +61,7 @@ export default function Page() {
 
                         <div className = "flex justify-center gap-4">
                             <Link
-                                href = "/week-9/shopping-list"
+                                href = "/week-10/shopping-list"
                                 className = "rounded-lg bg-[#2D3047] dark:bg-[#93B7BE] text-[#93B7BE] dark:text-[#2D3047] px-4 py-2 font-medium shadow transition hover:opacity-80"
                             >
                                 Go to Shopping List

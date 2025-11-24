@@ -19,6 +19,10 @@ export default function Page() {
     setItems(data);
   }
 
+    useEffect(() => {
+    loadItems();
+  }, [user]);
+
   if (!user) {
     return (
       <main className = "flex items-center justify-center min-h-screen">

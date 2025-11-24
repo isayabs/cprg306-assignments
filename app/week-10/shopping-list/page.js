@@ -5,12 +5,19 @@ import { useUserAuth } from "../_utils/auth-context";
 import ItemList from "./item-list";
 import NewItem from "./new-item";
 import MealIdeas from "./meal-ideas";
-import { getItems, addItems } from "../_services/shopping-list-service";
+import { getItems, addItem } from "../_services/shopping-list-service";
 
 export default function Page() {
   const { user } = useUserAuth();
-  const [items, setItems] = useState(itemsData);
+  const [items, setItems] = useState([]);
   const [selectedItemName, setSelectedItemName] = useState("");
+
+  async function loadItems() {
+    if (!user) return;
+
+    const data = await getItems(user.uid);
+    setItems(data);
+  }
 
   if (!user) {
     return (

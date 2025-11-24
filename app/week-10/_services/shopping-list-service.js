@@ -23,7 +23,7 @@ export async function getItems(userId) {
     }
 }
 
-export async function addItems(userId, item) {
+export async function addItem(userId, item) {
     try {
         const itemsRef = collection(db, "users", userId, "items");
         const docRef = await addDoc(itemsRef, item);

@@ -5,7 +5,7 @@ import { useUserAuth } from "../_utils/auth-context";
 import ItemList from "./item-list";
 import NewItem from "./new-item";
 import MealIdeas from "./meal-ideas";
-import { getItems, addItem } from "../_services/shopping-list-service";
+import { getItems, addItem, deleteItem } from "../_services/shopping-list-service";
 
 export default function Page() {
   const { user } = useUserAuth();
@@ -59,6 +59,11 @@ export default function Page() {
     setItems((prevItems) => [...prevItems, newItem]);
   };
 
+  const handleDeleteItem = async (id) => {
+    await deleteItem(user.uid, id);
+    setItems((prev) => prev.filter((item) => item.id !== id));
+  }
+
   const handleItemSelect = (item) => {
     if (!item || !item.name) 
     {
@@ -79,20 +84,24 @@ export default function Page() {
   };
 
   return (
-    <main className="min-h-screen p-4">
-      <div className="mx-auto w-full max-w-6xl">
-        <h1 className="mb-6 text-3xl font-bold text-left text-[#2D3047] dark:text-[#93B7BE]">
+    <main className = "min-h-screen p-4">
+      <div className = "mx-auto w-full max-w-6xl">
+        <h1 className = "mb-6 text-3xl font-bold text-left text-[#2D3047] dark:text-[#93B7BE]">
           Shopping List + Meal Ideas
         </h1>
 
-        <div className="flex flex-col md:flex-row gap-6 items-start">
-          <div className="flex-1">
+        <div className = "flex flex-col md:flex-row gap-6 items-start">
+          <div className = "flex-1">
             <NewItem onAddItem={handleAddItem} />
-            <ItemList items={items} onItemSelect={handleItemSelect} />
+            <ItemList 
+              items = {items} 
+              onItemSelect = {handleItemSelect} 
+              onDeleteItem = {handleDeleteItem}
+            />
           </div>
 
-          <div className="flex-1">
-            <MealIdeas ingredient={selectedItemName} />
+          <div className = "flex-1">
+            <MealIdeas ingredient = {selectedItemName} />
           </div>
         </div>
       </div>

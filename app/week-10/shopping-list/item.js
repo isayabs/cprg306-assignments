@@ -4,13 +4,13 @@ export default function Item({ name, quantity, category, className = "", onSelec
   }
 
   return (
-    <li 
+    <div 
       onClick={handleClick}
       className={className}
     >
       <p className="font-semibold">{name}</p>
       <p>Quantity: {quantity}</p>
       <p className="capitalize">Category: {category}</p>
-    </li>
+    </div>
   );
 }

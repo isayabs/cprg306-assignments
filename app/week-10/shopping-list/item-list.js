@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Item from "./item";
 
-export default function ItemList ({ items, onItemSelect }) {
+export default function ItemList ({ items, onItemSelect, onDeleteItem }) {
     const [sortBy, setSortBy] = useState("name");
 
     const btnBase =
@@ -67,20 +67,28 @@ export default function ItemList ({ items, onItemSelect }) {
             {sortBy !== "group" ? (
                 <ul className="space-y-3">
                     {sorted.map((item) => (
-                        <Item
-                            key = {item.id}
-                            className="border rounded-lg p-4 shadow-sm max-w-xl mx-auto
-                                        even:bg-[#93B7BE] even:text-gray-900
-                                        odd:bg-[#2D3047] odd:text-white
-                                        transition cursor-pointer
-                                        hover:shadow-md hover:scale-[1.01]
-                                        hover:border-[#93B7BE] dark:hover:border-[#93B7BE]/80
-                                        hover:brightness-110"
-                            name = {item.name}
-                            quantity = {item.quantity}
-                            category = {item.category}
-                            onSelect={() => onItemSelect?.(item)}
-                        />
+                        <li  key = {item.id} className="relative">
+                            <Item
+                                className="border rounded-lg p-4 shadow-sm max-w-xl mx-auto
+                                            even:bg-[#93B7BE] even:text-gray-900
+                                            odd:bg-[#2D3047] odd:text-white
+                                            transition cursor-pointer
+                                            hover:shadow-md hover:scale-[1.01]
+                                            hover:border-[#93B7BE] dark:hover:border-[#93B7BE]/80
+                                            hover:brightness-110"
+                                name = {item.name}
+                                quantity = {item.quantity}
+                                category = {item.category}
+                                onSelect={() => onItemSelect?.(item)}
+                            />
+
+                            <button 
+                                onClick = {() => onDeleteItem(item.id)}
+                                className = "absolute right-3 top-1/2 -translate-y-1/2 text-sm px-2 py-1 bg-red-700 opacity-70 text-white rounded hover:opacity-100"
+                            >
+                                Delete   
+                            </button>
+                        </li>
                     ))}
                 </ul>
             ) : (
@@ -92,20 +100,28 @@ export default function ItemList ({ items, onItemSelect }) {
                             </h2>
                             <ul className = "space-y-3">
                                 {list.map((item) => (
-                                    <Item
-                                        key = {item.id}
-                                        className="border rounded-lg p-4 shadow-sm max-w-xl mx-auto
-                                            even:bg-[#93B7BE] even:text-gray-900
-                                            odd:bg-[#2D3047] odd:text-white
-                                            transition cursor-pointer
-                                            hover:shadow-md hover:scale-[1.01]
-                                            hover:border-[#93B7BE] dark:hover:border-[#93B7BE]/80
-                                            hover:brightness-110"
-                                        name = {item.name}
-                                        quantity = {item.quantity}
-                                        category = {item.category}
-                                        onSelect={() => onItemSelect?.(item)}
-                                    />
+                                    <li key = {item.id} className="relative">
+                                        <Item
+                                            className="border rounded-lg p-4 shadow-sm max-w-xl mx-auto
+                                                even:bg-[#93B7BE] even:text-gray-900
+                                                odd:bg-[#2D3047] odd:text-white
+                                                transition cursor-pointer
+                                                hover:shadow-md hover:scale-[1.01]
+                                                hover:border-[#93B7BE] dark:hover:border-[#93B7BE]/80
+                                                hover:brightness-110"
+                                            name = {item.name}
+                                            quantity = {item.quantity}
+                                            category = {item.category}
+                                            onSelect={() => onItemSelect?.(item)}
+                                        />
+
+                                        <button
+                                            onClick={() => onDeleteItem(item.id)}
+                                            className="absolute right-3 top-1/2 -translate-y-1/2 text-sm px-2 py-1 bg-red-600 text-white rounded hover:bg-red-700"
+                                        >
+                                            Delete
+                                        </button>
+                                    </li>
                                 ))}
                             </ul>
                         </section>

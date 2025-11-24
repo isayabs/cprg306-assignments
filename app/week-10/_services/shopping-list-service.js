@@ -1,5 +1,5 @@
 import { db } from "../_utils/firebase";
-import { collection, getDocs, addDoc, query } from "firebase/firestore";
+import { collection, getDocs, addDoc, query, deleteDoc, doc } from "firebase/firestore";
 
 export async function getItems(userId) {
     const items = [];
@@ -32,5 +32,15 @@ export async function addItem(userId, item) {
     } catch (error) {
         console.error("Error adding item:", error);
         return null;
+    }
+}
+
+export async function deleteItem(userId, itemId) {
+    try {
+        const itemRef = doc(db, "users", userId, "items", itemId);
+        await deleteDoc(itemRef);
+
+    } catch (error) {
+        console.error("Error deleting an item:", error);
     }
 }

@@ -21,5 +21,16 @@ export async function getItems(userId) {
         console.error("Error fetching items:", error);
         return [];
     }
-    
+}
+
+export async function addItems(userId, item) {
+    try {
+        const itemsRef = collection(db, "users", userId, "items");
+        const docRef = await addDoc(itemsRef, item);
+        return docRef.id;
+        
+    } catch (error) {
+        console.error("Error adding item:", error);
+        return null;
+    }
 }

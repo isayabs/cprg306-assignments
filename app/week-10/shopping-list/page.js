@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useUserAuth } from "../_utils/auth-context";
 import ItemList from "./item-list";
 import NewItem from "./new-item";
 import MealIdeas from "./meal-ideas";
+import { getItems, addItems } from "../_services/shopping-list-service";
 
 export default function Page() {
   const { user } = useUserAuth();

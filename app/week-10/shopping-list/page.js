@@ -48,8 +48,15 @@ export default function Page() {
   }
     
 
-  const handleAddItem = (item) => {
-    setItems((prev) => [...prev, item]);
+  const handleAddItem = async (item) => {
+    const newId = await addItem(user.uid, item);
+
+    const newItem = {
+      id: newId,
+      ...item,
+    };
+
+    setItems((prevItems) => [...prevItems, newItem]);
   };
 
   const handleItemSelect = (item) => {
